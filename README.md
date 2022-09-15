@@ -39,7 +39,7 @@ As an example on the local loopback device:
 127.0.0.1      cluster-0-broker-0.redten.io cluster-0-broker-1.redten.io cluster-0-broker-2.redten.io
 ```
 
-For users on minikube you can use ``minikube status ip -p CLUSTERNAME`` to get the ip address:
+For users on minikube you can use ``minikube ip -p CLUSTERNAME`` to get the ip address:
 
 ```bash
 # /etc/hosts
