@@ -1,6 +1,6 @@
 [package]
 name = "rust-with-strimzi-kafka-and-tls"
-description = ""
+description = "Rust messaging with a Strimzi Kafka cluster secured with self-signed tls assets for encryption in transit with mtls for client authentication"
 version = "0.0.1"
 edition = "2021"
 license = "MIT"
