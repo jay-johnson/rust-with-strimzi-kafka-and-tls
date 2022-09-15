@@ -22,15 +22,19 @@ async fn produce(brokers: &str, topic_name: &str) {
         .set(
             "ssl.ca.location",
             std::env::var("KAFKA_TLS_CLIENT_CA")
-            .unwrap_or_else(|_| "./kubernetes/tls/ca.pem".to_string()))
+                .unwrap_or_else(|_| "./kubernetes/tls/ca.pem".to_string()),
+        )
         .set(
             "ssl.key.location",
-            std::env::var("KAFKA_TLS_CLIENT_KEY")
-            .unwrap_or_else(|_| "./kubernetes/tls/client-key.pem".to_string()))
+            std::env::var("KAFKA_TLS_CLIENT_KEY").unwrap_or_else(|_| {
+                "./kubernetes/tls/client-key.pem".to_string()
+            }),
+        )
         .set(
             "ssl.certificate.location",
             std::env::var("KAFKA_TLS_CLIENT_CERT")
-            .unwrap_or_else(|_| "./kubernetes/tls/client.pem".to_string()))
+                .unwrap_or_else(|_| "./kubernetes/tls/client.pem".to_string()),
+        )
         .set("enable.ssl.certificate.verification", "true")
         .create()
         .expect("Producer creation error");
