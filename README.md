@@ -92,7 +92,7 @@ Export this environment variable to the correct broker fqdns and ports:
 
 ```bash
 # export KAFKA_BROKERS=cluster-0-broker-0.redten.io:32151,cluster-0-broker-1.redten.io:32152,cluster-0-broker-2.redten.io:32153
-cargo build --bin run-producer
+cargo build --bin run-consumer
 export RUST_BACKTRACE=1
 export RUST_LOG=info
 ./target/debug/run-consumer --brokers $KAFKA_BROKERS -g rust-consumer-testing --topics testing
