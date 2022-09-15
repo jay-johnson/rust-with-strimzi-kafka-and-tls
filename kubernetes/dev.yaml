@@ -1,0 +1,74 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: dev
+  namespace: dev
+spec:
+  kafka:
+    version: 3.2.1
+    replicas: 3
+    listeners:
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
+      - name: tls
+        port: 9093
+        type: internal
+        tls: true
+        authentication:
+          type: tls
+      - name: external
+        port: 9094
+        type: nodeport
+        tls: true
+        authentication:
+          type: tls
+        configuration:
+          bootstrap:
+            nodePort: 32150
+          brokers:
+          - broker: 0
+            nodePort: 32151
+          - broker: 1
+            nodePort: 32152
+          - broker: 2
+            nodePort: 32153
+          brokerCertChainAndKey:
+            secretName: tls-kafka-cluster-0-server
+            # certificate: tls.crt
+            certificate: server-cert-chain.pem
+            key: tls.key
+    config:
+      offsets.topic.replication.factor: 3
+      transaction.state.log.replication.factor: 3
+      transaction.state.log.min.isr: 2
+      default.replication.factor: 3
+      min.insync.replicas: 2
+      inter.broker.protocol.version: "3.2"
+      ssl.cipher.suites: "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+      ssl.enabled.protocols: "TLSv1.2"
+      ssl.protocol: "TLSv1.2"
+    storage:
+      type: jbod
+      volumes:
+      - id: 0
+        class: enc-gp3
+        type: persistent-claim
+        size: 100Gi
+        deleteClaim: true
+  clientsCa:
+    generateCertificateAuthority: false
+  clusterCa:
+    generateCertificateAuthority: false
+  zookeeper:
+    replicas: 3
+    storage:
+      class: enc-gp3
+      type: persistent-claim
+      size: 100Gi
+      deleteClaim: true
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}
+  cruiseControl: {}

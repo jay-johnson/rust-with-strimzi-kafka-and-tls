@@ -1,0 +1,11 @@
+# example strimzi client tls secret and used in the strimzi Kafka yaml under:
+# kafka.listeners[where 'name' == external].brokerCertChainAndKey.secretName=tls-kafka-cluster-0-server
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: tls-kafka-cluster-0-server
+  namespace: dev
+data:
+  server-cert-chain.pem: BASE64_CHAIN_WITH_CA_AND_CERT_HERE
+  tls.key: BASE64_KEY_HERE

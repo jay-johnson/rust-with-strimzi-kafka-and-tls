@@ -1,0 +1,9 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: testing
+  labels:
+    strimzi.io/cluster: "dev"
+spec:
+  partitions: 3
+  replicas: 3

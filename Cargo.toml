@@ -1,0 +1,45 @@
+[package]
+name = "rust-with-strimzi-kafka-and-tls"
+description = ""
+version = "0.0.1"
+edition = "2021"
+license = "MIT"
+authors = [
+    "Jay Johnson <jayphjohnson@gmail.com>"
+]
+repository = "https://github.com/jay-johnson/rust-with-strimzi-kafka-and-tls"
+
+categories = [
+]
+keywords = [
+]
+exclude = [
+    "kubernetes/*",
+    "docker/*",
+    "notes/*",
+    "target/*",
+]
+
+[dependencies]
+async-std = { version = "1.9.0", features = ["attributes"] }
+backoff = "0.1.5"
+chrono = "0.4.0"
+clap = "2.18.0"
+env_logger = "0.9.0"
+futures = "0.3.0"
+hdrhistogram = "7.0.0"
+maplit = "1.0.2"
+rand = "0.3.15"
+regex = "1.1.6"
+smol = "1.2.4"
+log = { version = "^0.4.0" }
+rdkafka = { version = "0.28", features = ["cmake-build", "ssl", "ssl-vendored"] }
+tokio = { version = "1.21.0", features = ["rt", "time", "macros", "rt-multi-thread"] }
+
+[[bin]]
+name = "run-consumer"
+path = "src/consumer.rs"
+
+[[bin]]
+name = "run-producer"
+path = "src/producer.rs"
