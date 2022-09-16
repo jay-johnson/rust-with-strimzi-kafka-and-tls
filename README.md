@@ -1,8 +1,6 @@
 # Rust Kafka Publisher and Subscriber Demo with Strimzi Kafka and Client mTLS for encryption in transit
 
-This repository was created to profile the strimzi operator's kafka clusters from the blog article:
-
-https://jaypjohnson.com/2022-09-14-deploying-kafka-clusters-with-tls-on-kubernetes-using-strimzi-and-helm.html
+Simple producer/consumer messaging example that works with a Kafka cluster that enforces client mTLS authentication. 
 
 ## Optional - Custom TLS Assets
 
@@ -89,23 +87,24 @@ Export this environment variable to the correct broker fqdns and ports:
 
 ```bash
 # export KAFKA_BROKERS=cluster-0-broker-0.redten.io:32151,cluster-0-broker-1.redten.io:32152,cluster-0-broker-2.redten.io:32153
-cargo build --bin run-consumer
+cargo build --example run-consumer
 export RUST_BACKTRACE=1
 export RUST_LOG=info
-./target/debug/run-consumer --brokers $KAFKA_BROKERS -g rust-consumer-testing --topics testing
+./target/debug/examples/run-consumer -b $KAFKA_BROKERS -g rust-consumer-testing -t testing
 ```
 
 ### Start Producer
 
 ```bash
 # export KAFKA_BROKERS=cluster-0-broker-0.redten.io:32151,cluster-0-broker-1.redten.io:32152,cluster-0-broker-2.redten.io:32153
-cargo build --bin run-producer
+cargo build --example run-producer
 export RUST_BACKTRACE=1
 export RUST_LOG=info
-./target/debug/run-producer --brokers $KAFKA_BROKERS --topic testing
+./target/debug/examples/run-producer -b $KAFKA_BROKERS -t testing
 ```
 
 ## Sources
 
 - Rust Consumer and Producer examples from [rdkafka](https://github.com/fede1024/rust-rdkafka) with examples: https://github.com/fede1024/rust-rdkafka/tree/master/examples
 - Using your own CA and TLS Assets with Strimzi: https://github.com/scholzj/strimzi-custom-ca-test
+- This crate was created to profile Strimzi kafka cluster performance from this [blog article](https://jaypjohnson.com/2022-09-14-deploying-kafka-clusters-with-tls-on-kubernetes-using-strimzi-and-helm.html)

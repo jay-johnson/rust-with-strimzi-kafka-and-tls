@@ -4,7 +4,8 @@ use std::thread;
 use chrono::prelude::*;
 use env_logger::fmt::Formatter;
 use env_logger::Builder;
-use log::{LevelFilter, Record};
+use log::LevelFilter;
+use log::Record;
 
 /// setup_logger
 ///
@@ -18,7 +19,7 @@ use log::{LevelFilter, Record};
 /// # Examples
 ///
 /// ```rust
-/// use rust_with_kafka_tls::example_utils::setup_logger;
+/// use rust_with_kafka_tls::log_utils::setup_logger;
 /// setup_logger(true, Some("rdkafka=trace"));
 /// ```
 ///
@@ -51,9 +52,4 @@ pub fn setup_logger(log_thread: bool, rust_log: Option<&str>) {
     rust_log.map(|conf| builder.parse_filters(conf));
 
     builder.init();
-}
-
-#[allow(dead_code)]
-fn main() {
-    println!("This is not an example");
 }
