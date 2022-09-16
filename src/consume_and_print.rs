@@ -46,7 +46,7 @@ use crate::custom_context::LoggingConsumer;
 /// cargo build --example run-consumer
 /// export RUST_BACKTRACE=1
 /// export RUST_LOG=info
-/// ./target/debug/examples/run-consumer -b $KAFKA_BROKERS -g rust-consumer-testing --topics testing
+/// ./target/debug/examples/run-consumer -b $KAFKA_BROKERS -g rust-consumer-testing -t testing
 /// ```
 ///
 pub async fn consume_and_print(consumer: &LoggingConsumer) {
