@@ -4,13 +4,12 @@
 //!
 //! This crate was built from these awesome repos:
 //!
-//! - Rust Consumer and Producer examples from [rdkafka](https://github.com/fede1024/rust-rdkafka) with examples: https://github.com/fede1024/rust-rdkafka/tree/master/examples
-//! - Using your own CA and TLS Assets with Strimzi: https://github.com/scholzj/strimzi-custom-ca-test
+//! - Rust Consumer and Producer examples from [rdkafka](https://github.com/fede1024/rust-rdkafka) with [examples](https://github.com/fede1024/rust-rdkafka/tree/master/examples)
+//! - [Using your own CA and TLS Assets with Strimzi](https://github.com/scholzj/strimzi-custom-ca-test)
 //!
 //! ## Optional - Custom TLS Assets
 //!
-//! By default the ``./kubernetes/deploy.sh`` script will use the included tls assets in the repo: [./kubernetes/tls](https://github.com/jay-johnson/
-//! rust-with-strimzi-kafka-and-tls/tree/main/kubernetes/tls). Before going into production with these, please change these to your own to prevent security issues.
+//! By default the ``./kubernetes/deploy.sh`` script will use the included tls assets in the repo: [./kubernetes/tls](https://github.com/jay-johnson/rust-with-strimzi-kafka-and-tls/tree/main/kubernetes/tls). Before going into production with these, please change these to your own to prevent security issues.
 //!
 //! If you want to use your own tls assets you can set these environment variables:
 //!

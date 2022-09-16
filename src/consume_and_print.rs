@@ -15,9 +15,8 @@ use crate::custom_context::LoggingConsumer;
 ///
 /// # Optional - Set TLS Asset Paths
 ///
-/// You can either use the included tls assets within the github repo's
-/// [rust-with-strimzi-kafka-and-tls/kubernetes/tls](https://github.com/jay-johnson/
-/// rust-with-strimzi-kafka-and-tls/tree/main/kubernetes/tls)
+/// You can either use the included tls assets within the github repo
+/// [rust-with-strimzi-kafka-and-tls/kubernetes/tls](https://github.com/jay-johnson/rust-with-strimzi-kafka-and-tls/tree/main/kubernetes/tls)
 /// directory or export the environment variables:
 ///
 /// - ``KAFKA_TLS_CLIENT_CA`` - path to the Certificate Authority file
