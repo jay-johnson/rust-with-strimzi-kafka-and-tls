@@ -1,15 +1,12 @@
-# Rust Kafka Publisher and Subscriber Demo with TLS
-
-## Deploy the Strimzi Operator and Kafka cluster with TLS
+# Rust Kafka Publisher and Subscriber Demo with Strimzi Kafka and Client mTLS for encryption in transit
 
 This repository was created to profile the strimzi operator's kafka clusters from the blog article:
 
 https://jaypjohnson.com/2022-09-14-deploying-kafka-clusters-with-tls-on-kubernetes-using-strimzi-and-helm.html
 
-### Optional - Custom TLS Assets 
+## Optional - Custom TLS Assets
 
-By default the ``./kubernetes/deploy.sh`` script will use the included tls assets in the repo: [./kubernetes/tls](https://github.com/jay-johnson/
-rust-with-strimzi-kafka-and-tls/tree/main/kubernetes/tls). Before going into production with these, please change these to your own to prevent security issues.
+By default the ``./kubernetes/deploy.sh`` script will use the included tls assets in the repo: [./kubernetes/tls](https://github.com/jay-johnson/rust-with-strimzi-kafka-and-tls/tree/main/kubernetes/tls). Before going into production with these, please change these to your own to prevent security issues.
 
 If you want to use your own tls assets you can set these environment variables:
 
@@ -22,7 +19,7 @@ If you want to use your own tls assets you can set these environment variables:
 ./kubernetes/deploy.sh
 ```
 
-### Verify Client mTLS
+## Verify Client mTLS
 
 Clients must provide the tls key, cert and CAfile for establishing a valid mutual tls connection.
 
@@ -56,7 +53,7 @@ echo "ssl test" | openssl s_client -connect \
     && echo "strimzi kafka cluster is working with self-signed tls assets!"
 ```
 
-### Create Kafka Topic for Rust Messaging
+## Create Kafka Topic for Rust Messaging
 
 ```bash
 cat <<EOL | kubectl apply -n dev -f -
@@ -110,5 +107,5 @@ export RUST_LOG=info
 
 ## Sources
 
-- Rust Consumer and Producer examples: https://github.com/fede1024/rust-rdkafka/tree/master/examples
-- Using your own CA and TLS Assets: https://github.com/scholzj/strimzi-custom-ca-test
+- Rust Consumer and Producer examples from [rdkafka](https://github.com/fede1024/rust-rdkafka) with examples: https://github.com/fede1024/rust-rdkafka/tree/master/examples
+- Using your own CA and TLS Assets with Strimzi: https://github.com/scholzj/strimzi-custom-ca-test

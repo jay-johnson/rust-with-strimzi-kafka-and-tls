@@ -6,6 +6,22 @@ use env_logger::fmt::Formatter;
 use env_logger::Builder;
 use log::{LevelFilter, Record};
 
+/// setup_logger
+///
+/// Setup a logger for message processing by consumers or producers
+///
+/// # Arguments
+///
+/// * `log_thread` - flag for logging the processing thread
+/// * `rust_log` - string containing the logging level for the function caller
+///
+/// # Examples
+///
+/// ```rust
+/// use rust_with_kafka_tls::example_utils::setup_logger;
+/// setup_logger(true, Some("rdkafka=trace"));
+/// ```
+///
 pub fn setup_logger(log_thread: bool, rust_log: Option<&str>) {
     let output_format = move |formatter: &mut Formatter, record: &Record| {
         let thread_name = if log_thread {

@@ -1023,7 +1023,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a3f87b73ce11b1619a3c6332f45341e0047173771e8b8b73f87bfeefb7b56244"
 
 [[package]]
-name = "rust-with-strimzi-kafka-and-tls"
+name = "rust-with-kafka-tls"
 version = "0.0.1"
 dependencies = [
  "async-std",
