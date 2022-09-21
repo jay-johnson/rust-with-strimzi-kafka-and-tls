@@ -1,13 +1,13 @@
 [package]
 name = "rust-with-kafka-tls"
 description = "Rust messaging with a Strimzi Kafka cluster secured with self-signed tls assets for encryption in transit with mTLS for client authentication"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2021"
 license = "MIT"
 authors = [
     "Jay Johnson <jayphjohnson@gmail.com>"
 ]
-homepage = "https://docs.rs/rust-with-kafka-tls/latest/rust-with-kafka-tls/"
+homepage = "https://docs.rs/rust-with-kafka-tls/latest/rust-with-kafka-tls"
 documentation = "https://docs.rs/rust-with-kafka-tls"
 repository = "https://github.com/jay-johnson/rust-with-strimzi-kafka-and-tls"
 
