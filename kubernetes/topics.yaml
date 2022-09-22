@@ -7,3 +7,13 @@ metadata:
 spec:
   partitions: 3
   replicas: 3
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: user.events
+  labels:
+    strimzi.io/cluster: "dev"
+spec:
+  partitions: 3
+  replicas: 3
