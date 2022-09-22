@@ -1,4 +1,4 @@
-use log::info;
+use log::trace;
 use rdkafka::client::ClientContext;
 use rdkafka::consumer::stream_consumer::StreamConsumer;
 use rdkafka::consumer::ConsumerContext;
@@ -15,11 +15,11 @@ impl ClientContext for CustomContext {}
 
 impl ConsumerContext for CustomContext {
     fn pre_rebalance(&self, rebalance: &Rebalance) {
-        info!("Pre rebalance {:?}", rebalance);
+        trace!("Pre rebalance {:?}", rebalance);
     }
 
     fn post_rebalance(&self, rebalance: &Rebalance) {
-        info!("Post rebalance {:?}", rebalance);
+        trace!("Post rebalance {:?}", rebalance);
     }
 
     fn commit_callback(
@@ -27,7 +27,7 @@ impl ConsumerContext for CustomContext {
         result: KafkaResult<()>,
         _offsets: &TopicPartitionList,
     ) {
-        info!("Committing offsets: {:?}", result);
+        trace!("Committing offsets: {:?}", result);
     }
 }
 
